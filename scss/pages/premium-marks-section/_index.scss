@@ -6,11 +6,38 @@
 
   .radial-overlay {
     padding: 110px 96px;
+
+    @media (max-width: $breakpoint-laptop-xl) {
+      padding-right: 64px;
+      padding-left: 64px;       
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      padding: 50px 0;
+    }
+  }
+
+  .section-mark {
+    &.left {
+      left: 0;
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      height: 800px;
+      transform: translateY(-50%)
+    }
+
+    &.bottom {
+      bottom: 0;
+      top: auto;
+      height: 400px
+    }
   }
 
   .container {
     .text-in-border-box {
       @extend %horizontal-center;
+      margin: 0 16px;
     }
 
     .text-in-border {
@@ -28,6 +55,7 @@
 
       .subtitle {
         max-width: 620px;
+        margin-top: 10px;
       }
 
       .title {

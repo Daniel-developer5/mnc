@@ -6,6 +6,7 @@
 
   .img-box {
     position: relative;
+    display: block;
 
     &:hover {
       .car {
@@ -55,11 +56,27 @@
     gap: 110px;
     width: 50%;
 
+    @media (max-width: $breakpoint-laptop-xl) {
+      gap: 40px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 0;
+    }
+
     &:first-child {
       margin-right: 16px;
 
+      @media (max-width: $breakpoint-tablet) {
+        margin-right: 0;
+      }
+
       .img-box {
         height: 550px;
+
+        @media (max-width: $breakpoint-laptop-xl) {
+          height: 400px;
+        }
         
         &:first-child, &:nth-child(4n) {
           max-height: 616px;
@@ -69,10 +86,26 @@
           max-width: 464px;
           margin-left: auto;
           margin-right: 100px;
+
+          @media (max-width: $breakpoint-laptop-xl) {
+            margin-right: 40px;
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-right: 0;
+          }
         }
 
         &:nth-child(3) {
           margin-right: 100px;
+
+          @media (max-width: $breakpoint-laptop-xl) {
+            margin-right: 40px; 
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-right: 0;
+          }
         }
       }
     }
@@ -80,8 +113,20 @@
     &:last-child {
       padding-top: 290px;
 
+      @media (max-width: $breakpoint-laptop-xl) {
+        padding-top: 40px;     
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        padding-top: 0;
+      }
+
       .img-box {
         height: 550px;
+
+        @media (max-width: $breakpoint-laptop-xl) {
+          height: 400px;
+        }
         
         &:nth-child(2), &:nth-child(5n) {
           max-height: 616px;
@@ -89,12 +134,28 @@
 
         &:nth-child(1), &:nth-child(4) {
           margin-left: 100px;
+
+          @media (max-width: $breakpoint-laptop-xl) {
+            margin-left: 40px; 
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-left: 0;
+          }
         }
 
         &:nth-child(3) {
           margin-left: 100px;
           margin-right: auto;
           max-width: 464px;
+
+          @media (max-width: $breakpoint-laptop-xl) {
+            margin-left: 40px; 
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-left: 0;
+          }
         }
       }
     }

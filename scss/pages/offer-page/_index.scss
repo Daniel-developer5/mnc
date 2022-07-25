@@ -1,0 +1,181 @@
+.offer-page .about-us-section {
+  @include section-mark(0, 0, auto, auto, 760px);
+  background-image: url("../../../images/oferta/bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  .radial-overlay {
+    padding: 60px 96px 80px;
+
+    @media (max-width: $breakpoint-laptop-xl) {
+      padding-right: 64px;
+      padding-left: 64px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      padding: 50px 16px;
+    }
+  }
+
+  .container {
+    max-width: 1728px;
+
+    .text-in-border {
+      .title {
+        @extend %text-h4;
+        margin-bottom: 40px;
+        max-width: 450px;
+        font-weight: bold;
+
+        @media (max-width: $breakpoint-laptop) {
+          margin-bottom: 16px; 
+        }
+      }
+
+      .subtitle {
+        margin-top: 40px;
+
+        @media (max-width: $breakpoint-laptop) {
+          margin-top: 16px;
+        }
+      }
+    }
+
+    .about-us-info-box {
+      &:first-child {
+        .text-in-border {
+          &:before {
+            width: 90%;
+          }
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      &:last-child {
+        margin-top: 40px;
+
+        .text-in-border {
+          transform: translateY(40px);
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-bottom: 16px;
+            transform: none;
+          }
+        }
+      }
+
+      .center {
+        @extend %horizontal-center;
+        position: relative;
+        z-index: 0;
+      }
+
+      .about-us-info {
+        @extend %vertical-center;
+        position: relative;
+        z-index: 1;
+
+        &.reverse {
+          flex-direction: row-reverse;
+
+          .info-items {
+            margin-right: 0;
+            margin-right: 112px;
+
+            @media (max-width: $breakpoint-laptop) {
+              margin-right: 0;
+            }
+          }
+        }
+
+        @media (max-width: $breakpoint-laptop) {
+          &, &.reverse {
+            flex-direction: column;
+          }
+        }
+
+        .img-box {
+          max-width: 952px;
+          display: flex;
+
+          @media (max-width: $breakpoint-laptop) {
+            padding: 0 16px;
+            max-height: 500px;
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            padding: 0;
+          }
+  
+          img {
+            width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .info-items {
+          @extend %text-body;
+          max-width: 368px;
+          margin-left: 112px;
+          display: grid;
+          gap: 32px;
+          color: rgba($color: $color-white, $alpha: 0.6);
+          list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='11.931' viewBox='0 0 16 11.931'%3E%3Cpath id='Icon_awesome-check' data-name='Icon awesome-check' d='M5.434,16.274l-5.2-5.2a.8.8,0,0,1,0-1.131L1.366,8.812a.8.8,0,0,1,1.131,0l3.5,3.5,7.5-7.5a.8.8,0,0,1,1.131,0l1.131,1.131a.8.8,0,0,1,0,1.131l-9.2,9.2A.8.8,0,0,1,5.434,16.274Z' transform='translate(0 -4.577)' fill='%23fff'/%3E%3C/svg%3E%0A");
+        
+          @media (max-width: $breakpoint-laptop) {
+            max-width: 100%;
+            margin: 16px 34px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.offer-page {
+  .big-text {
+    @include section-mark;
+    @extend %horizontal-center;
+    @extend %section-padding;
+    padding-top: 40px;
+    padding-bottom: 160px;
+    background-color: #070707;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-bottom: 50px;
+    }
+
+    .text-in-border {
+      max-width: 944px;
+
+      .subtitle {
+        max-width: 500px;
+        padding-top: 24px;
+      }
+
+      .title {
+        @extend %text-h4;
+        max-width: 100%;
+        font-weight: bold;
+      }
+
+      &:before, &:after {
+        width: 90%;
+      }
+    }
+  }
+
+  .slider-section {
+    @extend %section-padding;
+    padding-bottom: 200px;
+    background-color: #070707;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-bottom: 100px;
+    }
+  }
+}

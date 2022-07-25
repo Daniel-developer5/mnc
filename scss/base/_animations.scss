@@ -1,0 +1,19 @@
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: ease 0.5s;
+
+  &.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inset-anim {
+  clip-path: inset(100%);
+  transition: cubic-bezier(0.15, 0.6, 0.21, 1.02) 0.6s;
+
+  &.animated {
+    clip-path: inset(0);
+  }
+}

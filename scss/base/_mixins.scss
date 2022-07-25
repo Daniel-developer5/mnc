@@ -30,6 +30,13 @@
     width: 95px;
     height: $height;
     background-color: $color-light-sand;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: ease 1s;
+
+    &.animated {
+      transform: scaleY(1);
+    }
 
     @media (max-width: $breakpoint-laptop-xl) {
       width: 64px;

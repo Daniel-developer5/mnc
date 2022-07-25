@@ -18,6 +18,24 @@ $(() => {
     },
   })
 
+  new Swiper('.premium-marks-slider .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    speed: 1000,
+    navigation: {
+      prevEl: '.premium-marks-slider .arrow-left',
+      nextEl: '.premium-marks-slider .arrow-right',
+    },
+    breakpoints: {
+      1136: {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+      }
+    },
+    on: {},
+  })
+
   const fixNav = () => {
     if (window.scrollY > 0) {
       $('.navigation').addClass('fixed')
@@ -35,20 +53,6 @@ $(() => {
   }
 
   calcPaddingTop()
-
-  const transformImg = () => {
-    return
-    $('.accordions-section .accordion-body .img-box img').each(function (i) {
-      const height = $('.accordions-section .accordion-header').eq(i).height()
-      
-      $(this).css({
-        maxHeight: 448 + height,
-        transform: `translateY(${-height}px)`,
-      })
-    })
-  }
-
-  transformImg()
 
   const accrodionBody = $('.accordions-section .accordions .accordion-body')
   const headers = $('.accordions-section .accordions .accordion-header')
@@ -76,6 +80,16 @@ $(() => {
 
   $(window).on('resize', () => {
     calcPaddingTop()
-    transformImg()
   })
+
+  const scrollAnimation = {
+    afterReveal(el) {
+      $(el).addClass('animated')
+    },
+    opacity: null,
+  }
+
+  ScrollReveal().reveal('.slide-up', scrollAnimation)
+  ScrollReveal().reveal('.inset-anim', scrollAnimation)
+  ScrollReveal().reveal('.section-mark', scrollAnimation)
 })

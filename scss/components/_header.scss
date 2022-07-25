@@ -1,0 +1,148 @@
+html.overflow, body.overflow {
+  overflow-y: hidden;
+}
+
+.navigation {
+  padding-left: 40px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10000;
+  transition: ease 0.3s;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-left: 16px;
+  }
+
+  &.fixed {
+    background-color: rgba($color: #000, $alpha: 0.8);
+    backdrop-filter: blur(20px)
+  }
+
+  &.light {
+    background-color: $color-white;
+    border-bottom: 1px solid rgba($color: $color-gray, $alpha: 0.3);
+
+    .container {
+      .logo {
+        .light {
+          display: block;
+        }
+  
+        .dark {
+          display: none;
+        }
+      }
+
+      .navigation-links .link {
+        color: $color-black;
+      }
+
+      .burger-menu-btn {
+        background-color: $color-black;
+        border-color: $color-black;
+      }
+    }
+  }
+
+  .container {
+    @extend %vertical-center;
+    justify-content: space-between;
+
+    .logo {
+      width: 180px;
+      padding: 20px 0;
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 100px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .light {
+        display: none;
+      }
+    }
+
+    .navigation-links {
+      @include row-grid(42px);
+
+      @media (max-width: $breakpoint-desktop) {
+        display: none;
+      }
+
+      .link {
+        @extend %text-eyebrow;
+        display: block;
+        padding-bottom: 14px;
+        color: $color-white;
+        border-bottom: 1px solid transparent;
+        transition: ease 0.2s;
+
+        &.active, &:hover {
+          color: $color-light-sand;
+          border-color: $color-light-sand;
+        }
+      }
+    }
+
+    .burger-menu-btn {
+      @extend %full-center;
+      padding: 0;
+      width: 96px;
+      min-height: 96px;
+      border: 1px solid $color-light-sand;
+      cursor: pointer;
+      transition: ease 0.3s;
+
+      &.is-active {
+        // background-color: $color-blue;
+        // border-color: $color-blue;
+  
+        .hamburger-inner {
+          transform: translate3d(0, 5px, 0) rotate(45deg);
+  
+          &, &:before, &:after {
+            // background-color: $color-white;
+          }
+  
+          &:after {
+            transform: translate3d(0, -10px, 0) rotate(-90deg);
+          }
+        }
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        width: 52px;
+        min-height: 100%;
+        align-self: stretch;
+      }
+  
+      &:hover {
+        opacity: 1;
+      }
+  
+      .hamburger-box {
+        width: 27px;
+        height: 12px;
+      }
+  
+      .hamburger-inner {
+        &, &:before, &:after {
+          width: 27px;
+          height: 2px;
+          background-color: $color-light-sand;
+        }
+  
+        &:before {
+          top: 5px;
+        }
+  
+        &:after {
+          top: 10px;
+        }
+      }
+    }
+  }
+}

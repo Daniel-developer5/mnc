@@ -1,0 +1,26 @@
+.button {
+  @extend %text-button;
+  display: inline-block;
+  padding: 12px 30px;
+  border: 1px solid transparent;
+  border-radius: 24px;
+  cursor: pointer;
+
+  &.button-sand {
+    background-color: $color-light-sand;
+    border-color: $color-light-sand;
+    color: $color-white;
+  }
+
+  &.button-black {
+    background-color: $color-black;
+    border-color: $color-black;
+    color: $color-white;
+  }
+
+  &.button-white {
+    background-color: transparent;
+    border-color: rgba($color: #fff, $alpha: 0.38);
+    color: $color-white;
+  }
+}

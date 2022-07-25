@@ -1,0 +1,131 @@
+.footer {
+  @extend %section-padding;
+  padding-top: 66px;
+  padding-bottom: 84px;
+  background-color: $color-black;
+  border-top: 1px solid rgba($color: $color-white, $alpha: 0.3);
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-top: 36px;
+    padding-bottom: 36px;     
+  }
+
+  .container {
+    .info {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint-tablet) {
+        flex-direction: column; 
+      }
+
+      .logo {
+        max-width: 180px;
+      }
+
+      .text {
+        display: flex;
+        align-items: flex-end;
+
+        @media (max-width: $breakpoint-tablet) {
+          align-items: flex-start;
+          flex-direction: column;
+          margin-top: 24px;
+        }
+
+        .location, .email {
+          @extend %text-eyebrow-small;
+          text-transform: initial;
+        }
+
+        .location {
+          max-width: 260px;
+          margin-right: 120px;
+          font-weight: 400;
+          color: $color-gray;
+
+          @media (max-width: $breakpoint-laptop-xl) {
+            margin-right: 36px;
+            margin-left: 24px;
+          }
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: 8px;
+          }
+        }
+
+        .email {
+          font-weight: 500;
+          color: $color-white;
+        }
+      }
+    }
+
+    .links {
+      display: flex;
+      justify-content: space-between;
+      margin: 28px 0;
+      border-top: 1px solid rgba($color: $color-white, $alpha: 0.3);
+      border-bottom: 1px solid rgba($color: $color-white, $alpha: 0.3);
+
+      @media (max-width: $breakpoint-tablet) {
+        display: grid; 
+      }
+
+      .link {
+        @extend %text-eyebrow-small;
+        padding: 28px 0;
+        color: $color-gray;
+
+        @media (max-width: $breakpoint-tablet) {
+          padding: 8px 0;
+        }
+
+        &:hover, &.active {
+          color: $color-sand;
+        }
+      }
+    }
+
+    .copyright {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: $breakpoint-tablet) {
+        flex-direction: column; 
+      }
+
+      .text {
+        @extend %text-eyebrow-small;
+        font-weight: 400;
+        text-transform: initial;
+        color: $color-white;
+
+        .gray {
+          color: $color-gray;
+        }
+      }
+
+      .socials {
+        @include row-grid(5px);
+
+        @media (max-width: $breakpoint-tablet) {
+          display: flex;
+          margin-top: 8px;
+        }
+
+        .social-link {
+          @extend %vertical-center;
+
+          @media (max-width: $breakpoint-tablet) {
+            &:first-child {
+              margin-right: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.cars-slider {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+
+  .swiper {
+    .swiper-slide {
+      height: 670px;
+      // width: 20% !important;
+      transition: ease 0.3s;
+      transform-origin: left;
+      // transform: scaleX(0.8);
+
+      @media (max-width: $breakpoint-tablet) {
+        height: 300px;
+      }
+
+      &.swiper-slide-active {
+        // width: 40% !important;
+        // transform: scaleX(1.6);
+
+        .img {
+          filter: grayscale(0);
+        }
+      }
+
+      .img {
+        background-position: center;
+        background-size: cover;
+        height: 100%;
+        filter: grayscale(1);
+        transition: ease 0.3s;
+      }
+
+      &.slide-1 .img {
+        background-image: url('../images/home-page/cars/slide-1.jpg')
+      }
+
+      &.slide-2 .img {
+        background-image: url('../images/home-page/cars/slide-2.jpg')
+      }
+
+      &.slide-3 .img {
+        background-image: url('../images/home-page/cars/slide-3.jpg')
+      }
+
+      &.slide-4 .img {
+        background-image: url('../images/home-page/cars/slide-4.jpg')
+      }
+    }
+  }
+
+  .controls {
+    .arrow {
+      @include slider-arrow($color-black, $color-sand);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+
+      &.arrow-left {
+        left: 16px;
+      }
+
+      &.arrow-right {
+        right: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@mixin full-absolute-bleed($space: 0, $position: absolute) {
+  position: $position;
+  top: $space;
+  right: $space;
+  bottom: $space;
+  left: $space;
+}
+
+@mixin row-grid($gap) {
+  display: grid;
+  grid-auto-flow: column;
+  gap: $gap;
+}
+
+@mixin section-mark($top: 0, $right: auto, $bottom: 0, $left: 0, $height: auto) {
+  position: relative;
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-mark {
+    position: absolute;
+    z-index: 1;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    width: 95px;
+    height: $height;
+    background-color: $color-light-sand;
+
+    @media (max-width: $breakpoint-laptop-xl) {
+      width: 64px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      display: none;
+    }
+  }
+}
+
+@mixin slider-arrow($hover-bg: $color-sand, $bg: transparent) {
+  @extend %full-center;
+  width: 56px;
+  height: 64px;
+  border: 1px solid $color-sand;
+  background-color: $bg;
+  cursor: pointer;
+  transition: ease 0.3s;
+
+  &:hover {
+    background-color: $hover-bg;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    width: 36px;
+    height: 36px; 
+  }
+
+  img {
+    width: 20px;
+  }
+
+  &.arrow-left {
+    img {
+      margin-top: 2px;
+      transform: rotate(180deg);
+    }
+  }
+}

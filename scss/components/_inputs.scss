@@ -1,0 +1,54 @@
+.text-field {
+  label, .label {
+    @extend %text-button;
+    color: $color-white;
+  }
+
+  input, .input, textarea, .textarea {
+    @extend %text-body;
+    width: 100%;
+    padding: 16px 0 10px;
+    color: $color-white;
+    border-bottom: 1px solid #565655;
+
+    &:focus {
+      border-color: $color-sand;
+    }
+  }
+
+  .textarea, textarea {
+    height: 90px;
+    resize: none;
+  }
+}
+
+.checkbox-wrapper {
+  @extend %text-eyebrow-small;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  color: $color-white;
+  font-weight: 300;
+  text-transform: initial;
+
+  .checkbox-border {
+    display: flex;
+    justify-content: center;
+    margin-right: 8px;
+    overflow: hidden;
+    border: 1px solid #565655;
+
+    &, .checkbox {
+      min-width: 16px;
+      height: 16px;
+    }
+
+    .checkbox {
+      opacity: 0;
+
+      &:checked {
+        opacity: 1;
+      }
+    }
+  }
+}

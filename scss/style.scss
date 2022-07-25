@@ -1,0 +1,24 @@
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/templates';
+@import 'base/animations';
+@import 'base/mixins';
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/buttons';
+@import 'components/inputs';
+@import 'components/text-in-border';
+
+@import 'blocks/cars-slider';
+@import 'blocks/contact-section';
+@import 'blocks/secondary-page-hero';
+@import 'blocks/gallery-grid-section';
+
+@import 'pages/home-page';
+@import 'pages/portfolio-page';
+@import 'pages/co-working-page';
+@import 'pages/finance';
+@import 'pages/contact-page';
+@import 'pages/team-page';
+@import 'pages/premium-marks-section';

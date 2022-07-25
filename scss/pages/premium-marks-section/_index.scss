@@ -1,0 +1,40 @@
+.premium-marks-page-section {
+  @include section-mark(0, 0, auto, auto, 570px);
+  background-image: url('../images/finance/bg.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .radial-overlay {
+    padding: 110px 96px;
+  }
+
+  .container {
+    .text-in-border-box {
+      @extend %horizontal-center;
+    }
+
+    .text-in-border {
+      margin: 0 auto;
+      margin-bottom: 110px;
+
+      @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 40px;
+      }
+
+      &:before, &:after {
+        width: 100%;
+        transform: none;
+      }
+
+      .subtitle {
+        max-width: 620px;
+      }
+
+      .title {
+        @extend %text-h4;
+        max-width: 670px;
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,0 +1,215 @@
+@mixin step-after(
+  $right: -280px, $left: auto, $direction: 'right',
+) {
+  top: calc(100% - 56px);
+  right: $right;
+  left: $left;
+  border-top: 1px solid $color-sand;
+  border-#{$direction}: 1px solid $color-sand;
+}
+
+.co-steps-section {
+  padding-bottom: 260px;
+  background-color: #000;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-bottom: 0;     
+  }
+
+  .bg-img-wrapper {
+    @include section-mark(0, 0, 20%, auto);
+    background-image: url('../images/co-working/bg.jpg');
+
+    .radial-overlay {
+      padding-top: 130px;
+      padding-bottom: 170px;
+
+      @media (max-width: $breakpoint-tablet) {
+        padding-top: 50px;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .inner-wrapper {
+    @include section-mark(100px, auto, auto, 0, 1200px);
+    background-color: #000;
+  }
+
+  .inner-wrapper, .bg-img-wrapper .radial-overlay {
+    @extend %section-padding;
+  }
+
+  .steps-list {
+    display: grid;
+    gap: 170px;
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 40px;   
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+
+      @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;
+      }
+
+      &:nth-child(even) {
+        align-items: flex-end;
+        justify-content: flex-end;   
+
+        .img-box {
+          order: 1;
+
+          @media (max-width: $breakpoint-tablet) {
+            order: 0;
+          }
+        }
+
+        .step-info {
+          order: 0;
+          background-color: #212121;
+          transform: translateX(60px);
+
+          @media (max-width: $breakpoint-tablet) {
+            order: 1;
+            transform: none;
+          }
+        }
+
+        .img-box {
+          &:after {
+            @include step-after(auto, -100%, 'left');
+
+            @media (max-width: $breakpoint-desktop) {
+              left: -56%;
+            }
+
+            @media (max-width: $breakpoint-laptop) {
+              left: -60%;
+            }
+          }
+        }
+      }
+
+      &:nth-child(odd) {
+        .img-box:after {
+          @include step-after();
+
+          @media (max-width: $breakpoint-laptop) {
+            right: -100px;
+          }
+        }
+      }
+
+      &.vertical-center {
+        align-items: center;
+      }
+
+      &.down-info {
+        align-items: flex-end;
+
+        .step-info {
+          transform: translate(-60px, 50%);
+
+          @media (max-width: $breakpoint-tablet) {
+            transform: none;
+          }
+        }
+      }
+
+      &.last .img-box:after {
+        display: none;
+      }
+
+      .img-box {
+        flex-grow: 1;
+        max-width: 561px;
+        max-height: 448px;
+        position: relative;
+
+        @media (max-width: $breakpoint-tablet) {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        &:after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: 0;
+
+          @media (max-width: $breakpoint-tablet) {
+            display: none;
+          }
+        }
+
+        img {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .step-info {
+        @extend %vertical-center;
+        flex-direction: column;
+        padding: 35px 60px 70px;
+        background-color: $color-black;
+        transform: translateX(-60px);
+        box-shadow: 0 3px 18px $color-black;
+        z-index: 3;
+
+        @media (max-width: $breakpoint-tablet) {
+          transform: none;
+          width: 100%;
+          padding: 30px 12px;
+        }
+
+        .eyebrow {
+          @extend %text-eyebrow-small;
+          color: $color-sand;
+        }
+
+        .title {
+          @extend %text-h2;
+          margin-bottom: 4px;
+          color: $color-sand;
+        }
+
+        .text {
+          @extend %text-body;
+          max-width: 216px;
+          margin: 0 auto;
+          text-align: center;
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+.co-working-page .text-section {
+  @include section-mark(-200px, 0, 0, auto);
+  @extend %section-padding;
+  @extend %horizontal-center;
+  padding-bottom: 215px;
+  background-color: #000;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding-bottom: 50px;
+  }
+
+  .text-in-border {
+    .title {
+      @extend %text-h4;
+      max-width: 1100px;
+      font-weight: 700;
+    }
+  }
+}

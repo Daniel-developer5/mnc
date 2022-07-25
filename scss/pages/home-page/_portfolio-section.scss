@@ -1,0 +1,66 @@
+.portfolio-section {
+  @include section-mark(-300px);
+
+  .padding {
+    @extend %section-padding;
+    padding-top: 50px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-bottom: 36px;   
+    }
+  }
+
+  .container {
+    .title-box {
+      margin-bottom: 50px;
+      max-width: 590px;
+
+      @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 0;
+      }
+  
+      .eyebrow {
+        @extend %text-eyebrow-small;
+        display: block;
+        margin-bottom: 12px;
+        color: $color-black;
+      }
+  
+      .subtitle {
+        @extend %text-h4;
+        margin-bottom: 12px;
+        color: $color-black;
+      }
+  
+      .title {
+        @extend %text-h2;
+        color: $color-black;
+      }
+    }
+
+    .text-box {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 76px;
+
+      @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 0; 
+      }
+
+      .text {
+        max-width: 400px;
+
+        .title {
+          @extend %text-h5;
+          margin-bottom: 20px;
+          color: $color-black;
+        }
+
+        .text {
+          @extend %text-body;
+          color: $color-gray;
+        }
+      }
+    }
+  }
+}

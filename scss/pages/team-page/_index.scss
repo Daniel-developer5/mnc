@@ -1,0 +1,128 @@
+.team-page .team-section {
+  @include section-mark(0, 0, auto, auto, 570px);
+  background-image: url('../images/finance/bg.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .section-mark.bottom {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+  }
+
+  .radial-overlay {
+    @extend %section-padding;
+    padding-top: 90px;
+    padding-bottom: 170px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  .container {
+    @extend %full-center;
+
+    @media (max-width: $breakpoint-tablet) {
+      flex-direction: column;
+    }
+
+    .col {
+      display: grid;
+      gap: 120px;
+
+      @media (max-width: $breakpoint-tablet) {
+        gap: 40px;
+      }
+
+      &:first-child {
+        padding-right: 100px;
+
+        @media (max-width: $breakpoint-laptop) {
+          padding-right: 40px;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          padding-right: 0;
+          padding-bottom: 40px;
+        }
+
+        .team-member {
+          &:nth-child(2) .img-box {
+            position: relative;
+            
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: -100px;
+              border-right: 1px solid $color-sand;
+
+              @media (max-width: $breakpoint-laptop) {
+                right: -40px;
+              }
+
+              @media (max-width: $breakpoint-tablet) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        padding-left: 100px;
+
+        @media (max-width: $breakpoint-laptop) {
+          padding-left: 40px;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .team-member {
+      &:hover {
+        .img-box img {
+          filter: grayscale(0);
+        }
+      }
+
+      .img-box {
+        max-width: 464px;
+
+        img {
+          display: block;
+          filter: grayscale(1);
+          transition: ease 0.3s;
+        }
+      }
+
+      .text-box {
+        margin-top: 36px;
+        padding-left: 36px;
+        color: $color-white;
+
+        .name {
+          display: block;
+          margin-bottom: 24px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 18px;
+          line-height: 110%;
+          font-weight: 400;
+          text-transform: uppercase;
+        }
+
+        .text {
+          @extend %text-h5;
+          max-width: 340px;
+        }
+      }
+    }
+  }
+}

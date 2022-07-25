@@ -1,0 +1,97 @@
+.secondary-page-hero {
+  @include section-mark(calc(50% + 50px));
+
+  .sub-page-banner {
+    @extend %section-padding;
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+
+    &.dark {
+      background-color: $color-black;
+
+      .container .text a {
+        color: $color-white;
+      }
+    }
+
+    .container {
+      display: flex;
+      justify-content: flex-end;
+
+      .text {
+        display: flex;
+
+        &, a {
+          @extend %text-button;
+          font-weight: 400;
+        }
+
+        .divider {
+          margin: 0 18px;
+        }
+
+        .divider, .current-page {
+          color: $color-sand;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .hero-content {
+    @extend %section-padding;
+    padding-bottom: 136px;
+    padding-top: 0;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding-bottom: 50px;
+    }
+
+    .container {
+      .title-box {
+        margin-bottom: 113px;
+
+        @media (max-width: $breakpoint-tablet) {
+          margin-bottom: 40px;
+        }
+
+        .eyebrow {
+          @extend %text-eyebrow-small;
+          display: block;
+          margin-bottom: 12px;
+          color: $color-black;
+        }
+
+        .title {
+          @extend %text-h2;
+          color: $color-black;
+        }
+      }
+
+      .text-box {
+        max-width: 560px;
+        margin-left: auto;
+
+        .title {
+          @extend %text-h5;
+          margin-bottom: 40px;
+          color: $color-black;
+
+          @media (max-width: $breakpoint-tablet) {
+            margin-bottom: 24px;
+          }
+        }
+
+        .text {
+          @extend %text-body;
+          color: $color-black;
+        }
+      }
+    }
+  }
+}

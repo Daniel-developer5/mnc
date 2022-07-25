@@ -1,0 +1,56 @@
+.contact-section {
+  background-image: url('../images/home-page/contact.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .radial-overlay {
+    @extend %section-padding;
+    padding: 69px 64px 92px;
+
+    @media (max-width: $breakpoint-tablet) {
+      padding: 50px 16px;
+    }
+  }
+
+  .container {
+    .text-in-border {
+      margin-bottom: 24px;
+
+      @media (max-width: $breakpoint-laptop-xl) {
+        margin-bottom: 40px;
+      }
+
+      .title {
+        max-width: 450px;
+      }
+    }
+
+    .contact-form {
+      max-width: 560px;
+      margin-left: auto;
+      display: grid;
+      gap: 30px;
+
+      @media (max-width: $breakpoint-laptop-xl) {
+        margin-left: 0;
+      }
+
+      .group {
+        display: flex;
+
+        .text-field {
+          width: 50%;
+
+          &:first-child {
+            margin-right: 16px;
+          }
+        }
+      }
+
+      .button-box {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}

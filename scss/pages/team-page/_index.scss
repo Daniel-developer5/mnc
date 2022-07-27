@@ -108,6 +108,10 @@
         padding-left: 36px;
         color: $color-white;
 
+        @media (max-width: $breakpoint-tablet) {
+          padding-left: 0;
+        }
+
         .name {
           display: block;
           margin-bottom: 24px;

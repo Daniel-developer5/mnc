@@ -47,6 +47,14 @@ $(() => {
   fixNav()
   $(window).on('scroll', fixNav)
 
+  $('.nav-toggle-btn').click(() => {
+    $('.full-screen-nav').toggleClass('open')
+
+    setTimeout(() => {
+      $('.full-screen-nav').toggleClass('animated')
+    }, 500)
+  })
+
   const calcPaddingTop = () => {
     $('.secondary-page-hero').css('padding-top', $('header.navigation').outerHeight())
     $('.search-page .search-block').css('margin-top', $('header.navigation').outerHeight())

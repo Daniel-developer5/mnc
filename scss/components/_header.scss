@@ -42,6 +42,7 @@ html.overflow, body.overflow {
       .burger-menu-btn {
         background-color: $color-black;
         border-color: $color-black;
+        cursor: pointer;
       }
     }
   }
@@ -141,6 +142,214 @@ html.overflow, body.overflow {
   
         &:after {
           top: 10px;
+        }
+      }
+    }
+  }
+
+  .full-screen-nav {
+    @include full-absolute-bleed;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 12000;
+    display: none;
+
+    .navigation-links, .info {
+      @extend %slide-up;
+    }
+
+    &.open {
+      display: flex;
+    }
+
+    &.animated {
+      .navigation-links, .info {
+        @extend %slide-up-animated;
+      }
+
+      .colorful-img {
+        clip-path: inset(22% 37% 22% 37%);
+      }
+    }
+
+    .bg-image {
+      @include full-absolute-bleed;
+      z-index: 0;
+      min-height: 100vh;
+      filter: grayscale(1);
+    }
+
+    .colorful-img {
+      @include full-absolute-bleed;
+      z-index: 2;
+      min-height: 100vh;
+      clip-path: inset(100%);
+      transition: cubic-bezier(0.15, 0.6, 0.21, 1.02) 0.5s;
+
+      @media (max-width: $breakpoint-laptop) {
+        display: none;
+      }
+    }
+
+    .bg-image, .colorful-img {
+      @include full-absolute-bleed;
+      min-height: 100vh;
+      object-fit: cover;
+    }
+
+    .links-box {
+      @extend %full-center;
+      position: relative;
+      z-index: 1;
+      width: 50%;
+      height: 100%;
+      padding: 40px;
+      background-color: rgba($color: $color-sand, $alpha: 0.68);
+
+      @media (max-width: $breakpoint-laptop) {
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      @media (max-width: $breakpoint-laptop) {
+        padding-top: 20px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        padding-right: 16px;
+        padding-left: 16px;
+        padding-top: 10px;
+      }
+
+      .logo {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+
+        @media (max-width: $breakpoint-laptop) {
+          position: static;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100px;
+        }
+      }
+
+      .navigation-links {
+        display: grid;
+        gap: 40px;
+
+        @media (max-width: $breakpoint-laptop) {
+          gap: 16px; 
+        }
+
+        .link {
+          @extend %text-eyebrow;
+          display: inline-block;
+          padding-bottom: 10px;
+          color: $color-white;
+          border-bottom: 1px solid transparent;
+          transition: ease 0.2s;
+
+          &.active, &:hover {
+            border-color: $color-white;
+          }
+        }
+      }
+
+      .info {
+        display: none;
+
+        @media (max-width: $breakpoint-laptop) {
+          display: grid;
+        }
+      }
+    }
+
+    .right-side {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      width: 50%;
+      position: relative;
+      z-index: 1;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+
+      @media (max-width: $breakpoint-laptop) {
+        width: 0;
+      }
+
+      .close-icon {
+        @extend %full-center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 96px;
+        height: 96px;
+        background-color: $color-light-sand;
+        cursor: pointer;
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 52px;
+          height: 52px;
+        }
+      }
+
+      .info {
+        display: grid;
+
+        @media (max-width: $breakpoint-laptop) {
+          display: none;
+        }
+      }
+    }
+
+    .right-side, .links-box {
+      .info {
+        gap: 28px;
+        padding-bottom: calc(22% + 10px);
+        padding-right: 132px;
+
+        @media (max-width: $breakpoint-desktop) {
+          padding-right: 64px;
+        }
+
+        @media (max-width: $breakpoint-laptop) {
+          padding: 0;
+        }
+
+        .location, .contacts {
+          span {
+            display: block;
+          }
+        }
+
+        .location, .contacts {
+          @extend %text-eyebrow-small;
+          font-weight: 400;
+          text-transform: initial;
+        }
+
+        .location {
+          color: rgba($color: $color-white, $alpha: 0.6);
+        }
+
+        .contacts {
+          color: $color-white;
+        }
+
+        .socials {
+          display: flex;
+
+          .social-link {
+            @extend %vertical-center;
+
+            &:first-child {
+              margin-right: 8px;
+            }
+          }
         }
       }
     }

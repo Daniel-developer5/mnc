@@ -1,11 +1,19 @@
-.slide-up {
+%slide-up {
   opacity: 0;
   transform: translateY(40px);
   transition: ease 0.5s;
+}
+
+%slide-up-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up {
+  @extend %slide-up;
 
   &.animated {
-    opacity: 1;
-    transform: translateY(0);
+    @extend %slide-up-animated;
   }
 }
 

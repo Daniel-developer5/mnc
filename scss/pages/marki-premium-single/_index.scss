@@ -1,4 +1,10 @@
 .marki-premium-single {
+  .secondary-page-hero .divider {
+    @media (max-width: $breakpoint-tablet) {
+      margin: 0 8px !important;
+    }
+  }
+
   .preview-section {
     @include section-mark(200px, auto, auto, 0, 360px);
     background-image: url('../images/single/preview-bg.jpg');
@@ -116,9 +122,17 @@
     .container {
       @extend %vertical-center;
 
+      @media (max-width: $breakpoint-tablet) {
+        flex-direction: column;   
+      }
+
       .line {
         flex-grow: 1;
         border-bottom: 1px solid $color-sand;
+
+        @media (max-width: $breakpoint-tablet) {
+          display: none;
+        }
       }
     }
 
@@ -129,6 +143,15 @@
       align-items: center;
       max-width: 272px;
       cursor: pointer;
+
+      @media (max-width: $breakpoint-tablet) {
+        max-width: 100%;
+        padding: 0;
+
+        &:nth-child(2) {
+          margin-bottom: 16px;
+        }
+      }
 
       &:hover {
         &:after, &:before {
@@ -149,16 +172,28 @@
         height: 50px;
         width: 100%;
         border: 1px solid $color-sand;
+
+        @media (max-width: $breakpoint-tablet) {
+          height: 24px; 
+        }
       }
 
       &:before {
         border-bottom: none;
         margin-bottom: 16px;
+
+        @media (max-width: $breakpoint-tablet) {
+          margin-bottom: 0; 
+        }
       }
 
       &:after {
         border-top: none;
         margin-top: 16px;
+
+        @media (max-width: $breakpoint-tablet) {
+          margin-top: 0; 
+        }
       }
 
       .eyebrow {
@@ -172,6 +207,11 @@
         margin-bottom: 46px;
         text-align: center;
         color: rgba($color: $color-white, $alpha: 0.6);
+
+        @media (max-width: $breakpoint-tablet) {
+          max-width: 250px;
+          margin-bottom: 16px;
+        }
       }
 
       .button {
@@ -189,7 +229,7 @@
 
     @media (max-width: $breakpoint-tablet) {
       padding-top: 50px;
-      padding-bottom: 50px;
+      padding-bottom: 0;
     }
 
     .container {
@@ -207,12 +247,20 @@
       .links {
         display: flex;
 
+        @media (max-width: $breakpoint-tablet) {
+          flex-direction: column; 
+        }
+
         .img-box {
           margin: 24px 0;
           display: flex;
           width: 100%;
           position: relative;
           max-height: 350px;
+
+          @media (max-width: $breakpoint-tablet) {
+            height: 350px;
+          }
 
           &:hover img {
             filter: grayscale(0);
@@ -266,15 +314,49 @@
             margin: 0 36px;
           }
 
+          @media (max-width: $breakpoint-tablet) {
+            border-bottom: 1px solid $color-light-sand;
+            border-left: 0;
+            margin: 0;
+            justify-content: center;
+          }
+
           &:after {
             content: '';
             height: 40%;
             position: absolute;
             left: -2px;
             border-left: 4px solid $color-light-sand;
+
+            @media (max-width: $breakpoint-tablet) {
+              border-bottom: 4px solid $color-light-sand;
+              border-left: none;
+              height: 0;
+              width: 40%;
+              left: auto;
+              bottom: -2px;
+            }
           }
         }
       }
+    }
+  }
+
+  .cars-slider .swiper .swiper-slide {
+    &.slide-1 .img {
+      background-image: url('../images/single/slider/slide-1.jpg')
+    }
+
+    &.slide-2 .img {
+      background-image: url('../images/single/slider/slide-2.jpg')
+    }
+
+    &.slide-3 .img {
+      background-image: url('../images/single/slider/slide-3.jpg')
+    }
+
+    &.slide-4 .img {
+      background-image: url('../images/single/slider/slide-4.jpg')
     }
   }
 }

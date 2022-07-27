@@ -39,7 +39,12 @@
       max-width: 1136px;
       margin: 0 auto;
 
+      &.animated .before {
+        @include scaled('Y');
+      }
+
       .before {
+        @include scale-animation(top, 'Y');
         position: absolute;
         top: -44px;
         right: 0;

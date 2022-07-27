@@ -4,7 +4,7 @@
     color: $color-white;
   }
 
-  input, .input, textarea, .textarea {
+  input, .input, textarea, .textarea, select, .select {
     @extend %text-body;
     width: 100%;
     padding: 16px 0 10px;
@@ -19,6 +19,17 @@
   .textarea, textarea {
     height: 90px;
     resize: none;
+  }
+
+  .select, select {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #565655;
+    outline: none;
+
+    optgroup {
+      color: $color-black;
+    }
   }
 }
 

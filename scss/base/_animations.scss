@@ -25,3 +25,17 @@
     clip-path: inset(0);
   }
 }
+
+@mixin scale-animation($origin: left, $axis: 'X') {
+  transform-origin: $origin;
+  transform: scale#{$axis}(0);
+  transition: ease 0.5s;
+
+  &.animated {
+    transform: scale#{$axis}(1);
+  }
+}
+
+@mixin scaled($axis: 'X') {
+  transform: scale#{$axis}(1);
+}

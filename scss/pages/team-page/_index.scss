@@ -130,3 +130,21 @@
     }
   }
 }
+
+.team-page .cars-slider .swiper .swiper-slide {
+  &.slide-1 .img {
+    background-image: url('../images/team/slide-1.jpg')
+  }
+
+  &.slide-2 .img {
+    background-image: url('../images/team/slide-2.jpg')
+  }
+
+  &.slide-3 .img {
+    background-image: url('../images/team/slide-3.jpg')
+  }
+
+  &.slide-4 .img {
+    background-image: url('../images/team/slide-4.jpg')
+  }
+}

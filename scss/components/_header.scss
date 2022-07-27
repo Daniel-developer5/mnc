@@ -194,6 +194,8 @@ html.overflow, body.overflow {
     .bg-image, .colorful-img {
       @include full-absolute-bleed;
       min-height: 100vh;
+      max-height: 100vh;
+      width: 100%;
       object-fit: cover;
     }
 

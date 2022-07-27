@@ -5,6 +5,12 @@
   background-size: cover;
   background-position: center;
 
+  &.animated {
+    .container .scroll-down-section:after {
+      @include scaled;
+    }
+  }
+
   .overlay {
     display: flex;
     width: 100%;
@@ -51,6 +57,7 @@
       }
 
       &:after {
+        @include scale-animation;
         content: '';
         position: absolute;
         top: 0;
@@ -214,7 +221,12 @@
         display: none; 
       }
 
+      &.animated:after {
+        @include scaled;
+      }
+
       &:after {
+        @include scale-animation;
         content: '';
         width: 272px;
         height: 195px;

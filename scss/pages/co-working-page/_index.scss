@@ -1,6 +1,7 @@
 @mixin step-after(
   $right: -280px, $left: auto, $direction: 'right',
 ) {
+  @include scale-animation(top, 'Y');
   top: calc(100% - 56px);
   right: $right;
   left: $left;
@@ -51,6 +52,12 @@
     .step-item {
       display: flex;
       align-items: flex-start;
+
+      &:nth-child(even), &:nth-child(odd) {
+        &.animated .img-box:after {
+          @include scaled('Y');
+        }
+      }
 
       @media (max-width: $breakpoint-tablet) {
         flex-direction: column;

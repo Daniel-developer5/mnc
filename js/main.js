@@ -100,4 +100,5 @@ $(() => {
   ScrollReveal().reveal('.slide-up', scrollAnimation)
   ScrollReveal().reveal('.inset-anim', scrollAnimation)
   ScrollReveal().reveal('.section-mark', scrollAnimation)
+  ScrollReveal().reveal('.scroll-anim', scrollAnimation)
 })

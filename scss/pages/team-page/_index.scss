@@ -1,8 +1,6 @@
 .team-page .team-section {
   @include section-mark(0, 0, auto, auto, 570px);
-  background-image: url('../images/finance/bg.jpg');
-  background-position: center;
-  background-size: cover;
+  @include overlay-bg('../images/finance/bg.jpg');
 
   .section-mark.bottom {
     top: auto;

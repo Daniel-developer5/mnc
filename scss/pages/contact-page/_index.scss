@@ -1,7 +1,6 @@
 .contact-main-section {
   @include section-mark(50%, auto, auto, 0, 520px);
-  background-image: url('../images/kontakt/bg.jpg');
-  background-size: cover;
+  @include overlay-bg('../images/kontakt/bg.jpg');
 
   .section-mark {
     transform: translateY(-50%);

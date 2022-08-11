@@ -13,8 +13,14 @@ $(() => {
         slidesPerView: 2,
       },
       1136: {
-        slidesPerView: 4,
+        slidesPerView: 'auto',
       }
+    },
+    on: {
+      slideChangeTransitionEnd({ el }) {
+        $(el).find('.swiper-slide').removeClass('larger-slide')
+        $(el).find('.swiper-slide.swiper-slide-active').addClass('larger-slide')
+      },
     },
   })
 
@@ -33,7 +39,12 @@ $(() => {
         spaceBetween: 16,
       }
     },
-    on: {},
+    on: {
+      slideChangeTransitionEnd({ el }) {
+        $(el).find('.swiper-slide').removeClass('larger-slide')
+        $(el).find('.swiper-slide.swiper-slide-active').addClass('larger-slide')
+      },
+    },
   })
 
   const fixNav = () => {
@@ -69,14 +80,15 @@ $(() => {
   let activeAccordion = null
 
   headers.each(function (i) {
-    $(this).click(function () {
-      if (activeAccordion === i) {
-        return
-      }
-  
+    $(this).click(function () {  
       accrodionBody.slideUp()
       headers.removeClass('ui-state-active')
       images.removeClass('active')
+
+      if (activeAccordion === i) {
+        activeAccordion = null
+        return
+      }
   
       accrodionBody.eq(i).slideDown()
       $(this).addClass('ui-state-active')
@@ -101,4 +113,17 @@ $(() => {
   ScrollReveal().reveal('.inset-anim', scrollAnimation)
   ScrollReveal().reveal('.section-mark', scrollAnimation)
   ScrollReveal().reveal('.scroll-anim', scrollAnimation)
+
+  const navLinks = $('.navigation-links .link, .footer .links .link a')
+
+  const removeLastSlash = url => url.replace(/\/$/, '')
+
+  navLinks.each(function() {
+    const locationHref = removeLastSlash(location.href)
+    const linkHref = removeLastSlash(this.href)
+
+    if (locationHref.includes(linkHref)) {
+        $(this).addClass('active')
+    }
+  })
 })

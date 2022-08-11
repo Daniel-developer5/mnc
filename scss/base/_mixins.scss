@@ -22,7 +22,7 @@
 
   .section-mark {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: $top;
     right: $right;
     bottom: $bottom;
@@ -75,5 +75,25 @@
       margin-top: 2px;
       transform: rotate(180deg);
     }
+  }
+}
+
+@mixin overlay-bg($bg) {
+  position: relative;
+  background-color: $color-black;
+
+  &:after {
+    @include full-absolute-bleed;
+    content: '';
+    z-index: 0;
+    background-image: url($bg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+  }
+
+  .radial-overlay {
+    position: relative;
+    z-index: 1;
   }
 }

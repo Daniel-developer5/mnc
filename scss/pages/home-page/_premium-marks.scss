@@ -1,7 +1,6 @@
 .premium-marks-section {
+  @include overlay-bg('../images/home-page/premium.jpg');
   @include section-mark(0, auto, auto, 0, 200px);
-  background-image: url('../images/home-page/premium.jpg');
-  background-size: cover;
 
   .radial-overlay {
     @extend %section-padding;

@@ -1,8 +1,6 @@
 .offer-page .about-us-section {
   @include section-mark(0, 0, auto, auto, 760px);
-  background-image: url("../images/oferta/bg.jpg");
-  background-size: cover;
-  background-position: center;
+  @include overlay-bg('../images/oferta/bg.jpg');
 
   .radial-overlay {
     padding: 60px 96px 80px;
@@ -43,6 +41,31 @@
 
     .about-us-info-box {
       &:first-child {
+        .text-in-border-wrapper {
+          display: flex;
+
+          &:after {
+            content: '';
+            max-width: 320px;
+            width: 320px;
+            margin-left: 112px;
+
+            @media (max-width: $breakpoint-laptop) {
+              display: none;
+            }
+          }
+
+          .center {
+            @extend %horizontal-center;
+            flex-grow: 1;
+            max-width: 952px;
+
+            @media (max-width: $breakpoint-laptop) {
+              max-width: 100%;
+            }
+          }
+        }
+
         .text-in-border {
           &:before {
             width: 90%;
@@ -119,7 +142,7 @@
 
         .info-items {
           @extend %text-body;
-          max-width: 368px;
+          max-width: 320px;
           margin-left: 112px;
           display: grid;
           gap: 32px;

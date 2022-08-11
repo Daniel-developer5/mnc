@@ -19,7 +19,11 @@
 
   .bg-img-wrapper {
     @include section-mark(0, 0, 20%, auto);
-    background-image: url('../images/co-working/bg.jpg');
+    @include overlay-bg('../images/co-working/bg.jpg');
+    
+    &:after {
+      background-size: 100%;
+    }
 
     .radial-overlay {
       padding-top: 130px;
@@ -166,11 +170,15 @@
       .step-info {
         @extend %vertical-center;
         flex-direction: column;
-        padding: 35px 60px 70px;
+        padding: 35px 78px 90px;
         background-color: $color-black;
         transform: translateX(-60px);
         box-shadow: 0 3px 18px $color-black;
         z-index: 3;
+
+        @media (max-width: $breakpoint-laptop-xl) {
+          padding: 35px 60px 70px;
+        }
 
         @media (max-width: $breakpoint-tablet) {
           transform: none;
@@ -191,7 +199,7 @@
 
         .text {
           @extend %text-body;
-          max-width: 216px;
+          max-width: 210px;
           margin: 0 auto;
           text-align: center;
           color: $color-white;

@@ -49,6 +49,7 @@ html.overflow, body.overflow {
 
   .container {
     @extend %vertical-center;
+    max-width: 100%;
     justify-content: space-between;
 
     .logo {
@@ -152,24 +153,14 @@ html.overflow, body.overflow {
     position: fixed;
     min-height: 100vh;
     z-index: 12000;
-    display: none;
-
-    .navigation-links, .info {
-      @extend %slide-up;
-    }
+    display: flex;
+    clip-path: inset(0 0 100% 0);
+    transition: ease 0.5s;
+    pointer-events: none;
 
     &.open {
-      display: flex;
-    }
-
-    &.animated {
-      .navigation-links, .info {
-        @extend %slide-up-animated;
-      }
-
-      .colorful-img {
-        clip-path: inset(22% 37% 22% 37%);
-      }
+      clip-path: inset(0 0 0 0);
+      pointer-events: all;
     }
 
     .bg-image {
@@ -183,8 +174,7 @@ html.overflow, body.overflow {
       @include full-absolute-bleed;
       z-index: 2;
       min-height: 100vh;
-      clip-path: inset(100%);
-      transition: cubic-bezier(0.15, 0.6, 0.21, 1.02) 0.5s;
+      clip-path: inset(22% 37% 22% 37%);
 
       @media (max-width: $breakpoint-laptop) {
         display: none;

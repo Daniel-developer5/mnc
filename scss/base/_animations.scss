@@ -18,11 +18,13 @@
 }
 
 .inset-anim {
-  clip-path: inset(100%);
-  transition: cubic-bezier(0.15, 0.6, 0.21, 1.02) 0.6s;
-
+  @extend %slide-up;
+  // clip-path: inset(100%);
+  
   &.animated {
-    clip-path: inset(0);
+    // transition: cubic-bezier(0.15, 0.6, 0.21, 1.02) 0.6s;
+    // clip-path: inset(0);
+    @extend %slide-up-animated;
   }
 }
 

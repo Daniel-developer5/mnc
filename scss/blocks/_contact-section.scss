@@ -1,7 +1,7 @@
 .contact-section {
-  background-image: url('../images/home-page/contact.jpg');
-  background-position: center;
-  background-size: cover;
+  @include overlay-bg('../images/home-page/contact.jpg');
+  position: relative;
+  background-color: $color-black;
 
   .radial-overlay {
     @extend %section-padding;

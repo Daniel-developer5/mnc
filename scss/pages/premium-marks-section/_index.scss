@@ -1,8 +1,6 @@
 .premium-marks-page-section {
   @include section-mark(0, 0, auto, auto, 570px);
-  background-image: url('../images/finance/bg.jpg');
-  background-position: center;
-  background-size: cover;
+  @include overlay-bg('../images/finance/bg.jpg');
 
   .radial-overlay {
     padding: 110px 96px;
@@ -56,6 +54,7 @@
       .subtitle {
         max-width: 620px;
         margin-top: 10px;
+        color: $color-gray;
       }
 
       .title {

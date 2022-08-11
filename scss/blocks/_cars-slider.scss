@@ -1,23 +1,35 @@
 .cars-slider {
-  max-width: 1920px;
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
+  z-index: 5;
 
   .swiper {
     .swiper-slide {
       height: 670px;
-      // width: 20% !important;
-      transition: ease 0.3s;
+      width: 20% !important;
+      transition: ease 0.5s;
       transform-origin: left;
-      // transform: scaleX(0.8);
+
+      @media (max-width: $breakpoint-laptop-xl) {
+        width: 50% !important;
+      }
 
       @media (max-width: $breakpoint-tablet) {
         height: 300px;
+        width: 100% !important;
       }
 
-      &.swiper-slide-active {
-        // width: 40% !important;
-        // transform: scaleX(1.6);
+      &.larger-slide {
+        width: 40% !important;
+
+        @media (max-width: $breakpoint-laptop-xl) {
+          width: 50% !important;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100% !important;
+        }
 
         .img {
           filter: grayscale(0);

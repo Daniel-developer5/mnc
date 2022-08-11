@@ -3,6 +3,9 @@
 
   .controls {
     margin-left: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     @media (max-width: $breakpoint-laptop-xl) {
       margin-left: 36px;
@@ -22,6 +25,8 @@
   }
 
   .swiper {
+    width: 100%;
+
     .swiper-slide {
       width: 25% !important;
       height: 448px;
@@ -38,7 +43,7 @@
         height: 300px;
       }
 
-      &.swiper-slide-active {
+      &.larger-slide {
         width: calc(50% - 32px) !important;
         filter: grayscale(0);
         

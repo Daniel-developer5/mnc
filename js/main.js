@@ -126,4 +126,21 @@ $(() => {
         $(this).addClass('active')
     }
   })
+
+  const fullImg = new Swiper('.full-screen-nav .bg-image', {
+    effect: 'fade',
+    draggable: false,
+    speed: 1300,
+  })
+
+  const colorFullImg = new Swiper('.full-screen-nav .colorful-img', {
+    effect: 'fade',
+    draggable: false,
+    speed: 800,
+  })
+
+  $('.full-screen-nav .navigation-links li').hover(function () {
+    fullImg.slideTo($(this).index())
+    colorFullImg.slideTo($(this).index())
+  })
 })

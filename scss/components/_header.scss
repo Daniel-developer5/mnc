@@ -168,6 +168,12 @@ html.overflow, body.overflow {
       z-index: 0;
       min-height: 100vh;
       filter: grayscale(1);
+
+      .swiper-slide img {
+        height: 100%;
+        object-fit: cover;
+        min-width: 100%;
+      }
     }
 
     .colorful-img {
@@ -178,6 +184,12 @@ html.overflow, body.overflow {
 
       @media (max-width: $breakpoint-laptop) {
         display: none;
+      }
+
+      .swiper-slide img {
+        height: 100%;
+        object-fit: cover;
+        min-width: 100%;
       }
     }
 
@@ -219,6 +231,7 @@ html.overflow, body.overflow {
         position: absolute;
         top: 40px;
         left: 40px;
+        max-width: 180px;
 
         @media (max-width: $breakpoint-laptop) {
           position: static;

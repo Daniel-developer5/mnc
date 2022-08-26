@@ -1,10 +1,10 @@
 .gallery-section {
   .row {
     display: flex;
-    height: 670px;
-
+    
     @media (max-width: $breakpoint-tablet) {
-      height: 300px;
+      flex-direction: column;
+      height: auto;
     }
 
     img {
@@ -16,21 +16,29 @@
       &:hover {
         filter: grayscale(0);
       }
+
+      @media (max-width: $breakpoint-tablet) {
+        max-height: 500px;
+      }
     }
 
     &:nth-child(odd) {
       img {
         width: 50%;
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
       }
     }
 
     &:nth-child(even) {
-      @media (max-width: $breakpoint-tablet) {
-        height: 200px;   
-      }
-
       img {
         width: calc(100% / 3);
+
+        @media (max-width: $breakpoint-tablet) {
+          width: 100%;
+        }
       }
     }
   }

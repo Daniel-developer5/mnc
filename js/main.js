@@ -58,12 +58,30 @@ $(() => {
   fixNav()
   $(window).on('scroll', fixNav)
 
-  $('.nav-toggle-btn').click(() => {
-    $('.full-screen-nav').toggleClass('open')
+  const fullScreenNav = $('.full-screen-nav')
 
-    setTimeout(() => {
-      $('.full-screen-nav').toggleClass('animated')
-    }, 500)
+  $('.nav-toggle-btn').click(() => {
+    if (fullScreenNav.hasClass('open')) {
+      fullScreenNav.removeClass('open')
+
+      setTimeout(() => {
+        fullScreenNav.removeClass('animated')
+      }, 500)
+
+      setTimeout(() => {
+        fullScreenNav.css('display', 'none')
+      }, 600)
+    } else {
+      fullScreenNav.css('display', 'flex')
+      
+      setTimeout(() => {
+        fullScreenNav.addClass('open')
+      }, 100)
+      
+      setTimeout(() => {
+        fullScreenNav.addClass('animated')
+      }, 500)
+    }
   })
 
   const calcPaddingTop = () => {
@@ -96,10 +114,6 @@ $(() => {
   
       activeAccordion = i
     })
-  })
-
-  $(window).on('resize', () => {
-    calcPaddingTop()
   })
 
   const scrollAnimation = {
@@ -142,5 +156,42 @@ $(() => {
   $('.full-screen-nav .navigation-links li').hover(function () {
     fullImg.slideTo($(this).index())
     colorFullImg.slideTo($(this).index())
+  })
+
+  const portfolioEvenRows = $('.portfolio-gallery-section .row:nth-child(even)')  
+  const portfolioOddRows = $('.portfolio-gallery-section .row:nth-child(odd)')
+  const oddRatio = 670 / 960
+  const evenRatio = 670 / 640
+
+  const calcPortfolioRowsSize = (rows, divider, ratio) => {
+    rows.each(function () {
+      const height = $(this).width() / divider * ratio
+
+      $(this).css('height', window.innerWidth >= 768 ? height : 'auto')
+    })
+  }
+
+  calcPortfolioRowsSize(portfolioOddRows, 2, oddRatio)
+  calcPortfolioRowsSize(portfolioEvenRows, 3, evenRatio)
+
+  const gridGalleryRatio = 550 / 856
+  const gridGalleryRatioMob = 320 / 390
+
+  const resizeGridGallery = () => {
+    const colWidth = $('.gallery-grid-section .col').width()
+
+    $('.gallery-grid-section .img-box').css(
+      'height',
+      (colWidth ? colWidth : window.innerWidth) * (window.innerWidth >= 768 ? gridGalleryRatio : gridGalleryRatioMob)
+    )
+  }
+
+  resizeGridGallery()
+
+  $(window).on('resize', () => {
+    calcPaddingTop()
+    calcPortfolioRowsSize(portfolioOddRows, 2, oddRatio)
+    calcPortfolioRowsSize(portfolioEvenRows, 3, evenRatio)
+    resizeGridGallery()
   })
 })

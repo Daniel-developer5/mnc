@@ -153,7 +153,7 @@ html.overflow, body.overflow {
     position: fixed;
     min-height: 100vh;
     z-index: 12000;
-    display: flex;
+    display: none;
     clip-path: inset(0 0 100% 0);
     transition: ease 0.5s;
     pointer-events: none;

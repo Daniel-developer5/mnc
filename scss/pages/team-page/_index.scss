@@ -27,6 +27,20 @@
       flex-direction: column;
     }
 
+    &.desktop {
+      @media (max-width: $breakpoint-tablet) {
+        display: none;
+      }
+    }
+
+    &.mobile {
+      display: none;
+
+      @media (max-width: $breakpoint-tablet) {
+        display: flex;
+      }
+    }
+
     .col {
       display: grid;
       gap: 120px;

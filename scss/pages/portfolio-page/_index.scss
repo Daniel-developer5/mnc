@@ -16,10 +16,6 @@
       &:hover {
         filter: grayscale(0);
       }
-
-      @media (max-width: $breakpoint-tablet) {
-        max-height: 500px;
-      }
     }
 
     &:nth-child(odd) {

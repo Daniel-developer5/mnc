@@ -24,26 +24,31 @@ $(() => {
     },
   })
 
-  new Swiper('.premium-marks-slider .swiper', {
-    slidesPerView: 1,
-    spaceBetween: 0,
+  new Swiper('.premium-marks-slider.desktop .swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
     loop: true,
     speed: 1000,
     navigation: {
-      prevEl: '.premium-marks-slider .arrow-left',
-      nextEl: '.premium-marks-slider .arrow-right',
-    },
-    breakpoints: {
-      1136: {
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-      }
+      prevEl: '.premium-marks-slider.desktop .arrow-left',
+      nextEl: '.premium-marks-slider.desktop .arrow-right',
     },
     on: {
       slideChangeTransitionEnd({ el }) {
         $(el).find('.swiper-slide').removeClass('larger-slide')
         $(el).find('.swiper-slide.swiper-slide-active').addClass('larger-slide')
       },
+    },
+  })
+
+  new Swiper('.premium-marks-slider.mobile .swiper', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    speed: 1000,
+    navigation: {
+      prevEl: '.premium-marks-slider.mobile .arrow-left',
+      nextEl: '.premium-marks-slider.mobile .arrow-right',
     },
   })
 

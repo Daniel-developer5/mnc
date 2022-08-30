@@ -1,6 +1,18 @@
 .premium-marks-slider {
   display: flex;
 
+  @media (max-width: $breakpoint-laptop-xl) {
+    display: none;
+  }
+
+  &.mobile {
+    display: none;
+
+    @media (max-width: $breakpoint-laptop-xl) {
+      display: flex;
+    }
+  }
+
   .controls {
     margin-left: 112px;
     display: flex;

@@ -1,4 +1,11 @@
 $(() => {
+  const calcCarsSliderHeight = () => {
+    $('.cars-slider .swiper-slide').css(
+      'height',
+      window.innerWidth / 100 * (window.innerWidth >= 1136 ? 60 : 100) * 0.8
+    )
+  }
+
   new Swiper('.cars-slider .swiper', {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -20,6 +27,14 @@ $(() => {
       slideChangeTransitionEnd({ el }) {
         $(el).find('.swiper-slide').removeClass('larger-slide')
         $(el).find('.swiper-slide.swiper-slide-active').addClass('larger-slide')
+      },
+      resize() {
+        calcCarsSliderHeight()
+      },
+      afterInit() {
+        if (window.innerWidth < 1136) {
+          calcCarsSliderHeight()
+        }
       },
     },
   })
